@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>recursive optimization</title>
+</head>
+
+<body>
+
+  <script>
+    // 传统递归
+    function factorial(n) {
+      if (n < 2) return 1;
+      return n * factorial(n - 1);
+    }
+    console.log(factorial(2), factorial(5), factorial(7));
+
+    // 递归尾调用优化
+    function factorial_tco(n, acc = 1) {
+      if (n < 2) return acc;
+      return factorial_tco(n - 1, n * acc);
+    }
+    console.log(factorial_tco(2), factorial_tco(5), factorial_tco(7));
+
+    // 递归展开成循环
+    function factorial_loop(n) {
+      var res = 1;
+      while (n > 1) {
+        res *= n;
+        n--;
+      }
+      return res;
+    }
+    console.log(factorial_loop(2), factorial_loop(5), factorial_loop(7));
+
+    // 蹦床函数用于优化相互递归调用，原理是使用闭包逐个放入调用栈执行（排队一个一个执行）
+    // 避免了想传统递归一样一次全部放入调用栈中
+    // https://blog.oyanglul.us/javascript/clojure-essence-in-javascript-trampoline
+    // http://stormluke.me/trampoline-in-javascript/
+
+    /*
+        原始循环递归调用写法
+    */
+    function evenSteven(n) {
+      if (n === 0)
+        return true
+      else
+        return oddJohn(Math.abs(n) - 1);
+    }
+
+    function oddJohn(n) {
+      if (n === 0)
+        return false
+      else
+        return evenSteven(Math.abs(n) - 1);
+    }
+    console.log(evenSteven(3), evenSteven(4), oddJohn(5), oddJohn(6)); //false true true false
+    
+
+    /* 蹦床函数优化后的递归调用 */
+    let _isFunction = (fn) => {
+      return Object.prototype.toString.call(fn) === "[object Function]";
+    }
+
+    function trampoline( fn, arg1 ) {
+      if (!_isFunction(fn)) {
+        throw new TypeError("fn is not a function, can't call it");
+      }
+      var res = fn.call(null, arg1);
+      while (_isFunction(res)) {
+        res = res();
+      }
+      return res;
+    }
+
+    // 返回新函数并预先绑定了参数
+    function partial1(fun, arg1) {
+      return fun.bind(undefined, arg1);
+    }
+    function evenOline(n) {
+      if (n === 0)
+        return true;
+      else
+        return partial1(oddOline, Math.abs(n) - 1);
+    }
+    function oddOline(n) {
+      if (n === 0)
+        return false;
+      else
+        return partial1(evenOline, Math.abs(n) - 1);
+    }
+    console.log(trampoline(evenOline,3), trampoline(evenOline,4), trampoline(oddOline,5), trampoline(oddOline,6)); //false true true false
+
+  </script>
+
+</body>
+
+</html>
