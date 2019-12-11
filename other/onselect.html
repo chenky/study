@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test on select</title>
+</head>
+<body>
+  <div>nnnnnn</div>
+  <div contenteditable="true" id='test_select'>
+    adsfakdsfkad;fkadk,我们打卡机地方卡士大夫
+  </div>
+  <textarea id="txt">
+    aaaaaaaaaaaaab<span style="color:red">mmm</span>bbbbbbbb,dfasd
+  </textarea>
+  <script>
+    let elem = document.getElementById('test_select');
+    let txt = document.getElementById('txt');
+    txt.onselect = function(event){
+      console.log(event);
+    }
+    elem.onselect = function(event){
+      console.log('onselect');
+    }
+    elem.onselectionchange = function(obj){
+      let selection = document.getSelection();
+    }
+    document.onselectionchange = function(obj){
+      let selection = document.getSelection();
+      console.log(selection)
+    }
+  </script>
+</body>
+</html>
