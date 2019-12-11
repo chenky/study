@@ -39,28 +39,35 @@
 // s1.notify();
 
 function createSubscribeFactory(){
-  let current = [];
-  let next = [];
+  // let current = [];
+  // let next = [];
+  let listeners = [];
   return {
     notify: function() {
-      let listeners = current = next;
-      for (let index = 0; index < listeners.length; index++) {
-        listeners[index]();        
+      // let listeners = current = next;
+      // for (let index = 0; index < listeners.length; index++) {
+      //   listeners[index]();        
+      // }
+      let listenersCopy = [...listeners];
+      for (let index = 0; index < listenersCopy.length; index++) {
+        listenersCopy[index]();        
       }
     },
     subscribe: function(listener){
-      if(current === next){
-        next = [...current];
-      }
-      next.push(listener);
+      // if(current === next){
+      //   next = [...current];
+      // }
+      // next.push(listener);
+      listeners.push(listener);
       let isSubscribed = true;
       return function unsubscribe(){
         if(!isSubscribed) return;
         isSubscribed = false;
-        if(current === next){
-          next = [...current];
-        }
-        next.splice(next.indexOf(listener), 1);
+        // if(current === next){
+        //   next = [...current];
+        // }
+        // next.splice(next.indexOf(listener), 1);
+        listeners.splice(listeners.indexOf(listener), 1);
       } 
     }
   }
@@ -87,6 +94,7 @@ let unsubscribeLog2 = s1.subscribe(()=>{
 s1.subscribe(log3)
 s1.subscribe(log4)
 s1.notify();
+// s1.notify();
 
 // let b =[2];
 // let c =[3];
