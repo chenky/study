@@ -5,31 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>test on select</title>
+  <style>
+    .selection_tag{
+      color: red;
+    }
+  </style>
 </head>
 <body>
+  <p>tesdfsdaasdjk</p>
   <div>nnnnnn</div>
-  <div contenteditable="true" id='test_select'>
-    adsfakdsfkad;fkadk,我们打卡机地方卡士大夫
-  </div>
+  <div id='test_select' class="selection_area">adsf<span class="selection_tag">inner span</span>,我们打卡机地方卡士大夫</div>
   <textarea id="txt">
     aaaaaaaaaaaaab<span style="color:red">mmm</span>bbbbbbbb,dfasd
   </textarea>
+  <section>
+    <p>
+      seltiodfnafd ,dfadkflk;ladfj
+    </p>
+  </section>
+  <button id="get_selection">get selection</button>
+  <script src="./onselection.js"></script>
   <script>
+    /*
+      reference:
+      https://developer.mozilla.org/zh-CN/docs/Web/API/Selection
+      https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType
+      https://developer.mozilla.org/zh-CN/docs/Web/API/Range
+      https://developer.mozilla.org/zh-CN/docs/Web/API/Range/commonAncestorContainer
+      https://developer.mozilla.org/zh-CN/docs/Web/API/Range/surroundContents
+    */
+
     let elem = document.getElementById('test_select');
+    let elemTxt = elem.innerText;
     let txt = document.getElementById('txt');
-    txt.onselect = function(event){
-      console.log(event);
-    }
-    elem.onselect = function(event){
-      console.log('onselect');
-    }
-    elem.onselectionchange = function(obj){
+    let btn = document.getElementById("get_selection")
+    
+    // elem.onselectstart = function(event){
+    //   let { target } = event;
+    //   console.log(target.className);
+    //   if(target.className === 'selection_tag'){
+    //     console.log('selection_tag selected')
+    //     return false;
+    //   }
+    // }
+    // elem.querySelectorAll('.selection_tag').
+
+    btn.onclick = function(){
+      // console.log(getCaretInfo(elem));
+      // console.log(document.getSelection());      
       let selection = document.getSelection();
+      // console.log(selection.toString());
+      let range = selection.getRangeAt(0);
+      // console.log(range);
+      let { anchorOffset, focusOffset, rangeCount,isCollapsed,containsNode } = selection;
+      let { commonAncestorContainer } = range;
+      let commonAncestorContainerParentElement = commonAncestorContainer.parentElement;
+      // 有选择的区域，并且起始点和终点不在同一个位置
+      if(rangeCount>0 && !isCollapsed){        
+        // let start,end;
+        // if(anchorOffset>focusOffset){
+        //   start = anchorOffset;
+        //   end = focusOffset;
+        // } else{
+        //   start = focusOffset;
+        //   end = anchorOffset;
+        // }
+        // 父节点必须是可选区域，确保已经标记的tag不能再标记
+        if(commonAncestorContainer.nodeType === 3 && commonAncestorContainerParentElement 
+        && commonAncestorContainerParentElement.className==='selection_area'){
+          // console.log(document.getSelection())
+          let { startOffset, endOffset } = range;
+          let rangeTxt = range.toString();
+          
+          // console.log(range);
+          // range.setStartBefore(elem);
+          // console.log(range);
+
+
+          let newNode = document.createElement('span');
+          newNode.className = 'selection_tag';
+          range.surroundContents(newNode);          
+        }
+      }
     }
-    document.onselectionchange = function(obj){
-      let selection = document.getSelection();
-      console.log(selection)
-    }
+    
   </script>
 </body>
 </html>
