@@ -68,7 +68,7 @@
     }
 
     btn.onclick = function(){   
-      let selection = document.getSelection();
+      let selection = window.getSelection() || document.getSelection();
       let range = selection.getRangeAt(0);
       let { rangeCount,isCollapsed } = selection;
       let { commonAncestorContainer } = range;
@@ -81,6 +81,15 @@
           // console.log(document.getSelection())
           let { startOffset, endOffset, startContainer } = range;
           let rangeTxt = range.toString();
+
+          // 第一种计算方式
+          // const preSelectionRange = range.cloneRange()
+          // preSelectionRange.selectNodeContents(this.$el)
+          // preSelectionRange.setEnd(range.startContainer, range.startOffset)
+          // this.start = [...preSelectionRange.toString()].length
+          // this.end = this.start + [...range.toString()].length
+
+          // 第二种计算方式
           let prev = startContainer.previousElementSibling;
           let start, end;
           if(prev && prev.className === 'selection_tag'){
