@@ -49,11 +49,22 @@
     let txt = document.getElementById('txt');
     let btn = document.getElementById("get_selection");
 
+    // elem.addEventListener('selectstart', function(e){
+    //   // return false;
+    //   e.preventDefault();
+    //   // e.stopPropagation();
+    //   // return false;
+    // },false);
+    // elem.onselectstart = function(){
+    //   return false;
+    // }
+    // 删除已经标注的内容
     elem.onclick = function(event){      
       let { target } = event;      
       if(target && target.nodeName.toLowerCase() === 'i'){
         // 获取到selection_tag
         let selectionTag = target.parentNode;
+        let selectionArea = selectionTag.parentNode;
         // let { previousSibling, nextSibling } = selectionTag;
         // 获取高亮的文本
         let selectionText = target.previousSibling;     
@@ -61,12 +72,13 @@
         // elem.replaceChild(selectionText, selectionTag);
         selectionTag.replaceWith(selectionText);
         // 相邻的文本节点会标准化，自动合并
-        elem.normalize();
+        selectionArea.normalize();
         // $(selectionTag).replaceWith(selectionText);
         // $(selectionText).unwrap();
       }
     }
 
+    // 标注内容
     btn.onclick = function(){   
       let selection = window.getSelection() || document.getSelection();
       let range = selection.getRangeAt(0);

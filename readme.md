@@ -9,6 +9,23 @@
 8. 依赖注入
 9. flex和grid
 10. 框架类库源码分析
+11. [精读《Vue3.0 Function API》](https://zhuanlan.zhihu.com/p/71667382)
+12. [精读《Function Component 入门》](https://zhuanlan.zhihu.com/p/67087685)
+13. [一篇看懂 React Hooks](https://zhuanlan.zhihu.com/p/50597236)， [精读《React Hooks 最佳实践》](https://zhuanlan.zhihu.com/p/81752821)
+14. promise, generator, async await
+15. 数据结构与算法
+
+## 技术博客
+- [倔金腾讯IVWEB团队](https://juejin.im/user/5a9f77666fb9a028c14a01eb)
+- [知乎purerender](https://zhuanlan.zhihu.com/purerender)
+- [知乎精读前端](https://zhuanlan.zhihu.com/FrontendPerusal)
+
+## 工具类及工程化类
+- gitlab
+- jinkens
+- webpack
+- react react-router react-redux mobx
+- 装饰器
 
 ## 目录说明
 - algorithm
