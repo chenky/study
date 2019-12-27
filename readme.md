@@ -14,6 +14,7 @@
 13. [一篇看懂 React Hooks](https://zhuanlan.zhihu.com/p/50597236)， [精读《React Hooks 最佳实践》](https://zhuanlan.zhihu.com/p/81752821)
 14. promise, generator, async await
 15. 数据结构与算法
+16. [how to build your own react](https://pomb.us/build-your-own-react/)
 
 ## 技术博客
 - [倔金腾讯IVWEB团队](https://juejin.im/user/5a9f77666fb9a028c14a01eb)
