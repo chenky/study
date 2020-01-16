@@ -2,18 +2,31 @@ import React, {useState} from 'react'
 import { Button } from 'antd'
 
 export default function StudyHook() {
-  let [count, setCount] = useState(1);
+  let [info, setInfo] = useState({age:1, sex: 'man'});
 
-  function handleClick(){
-    setCount(++count);
+  function setStateInfo(newInfo){
+    setInfo({...newInfo});
+    // setInfo(newInfo);
   }
 
-  console.log(count)
+  function handleAge(){
+    ++info.age
+    setStateInfo(info)
+  }
+
+  function handleSex(){
+    info.sex = info.sex === 'man' ? 'woman': 'man'
+    setStateInfo(info);
+  }
+
+  
 
   return (
     <div>
-<span>{count}</span>
-<Button onClick={handleClick}>+1</Button>
+<span>{info.age}</span>
+  <span>{info.sex}</span>
+<Button onClick={handleAge}>age+1</Button>
+<Button onClick={handleSex}>set sex</Button>
     </div>
   )
 }
