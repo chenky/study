@@ -21,12 +21,19 @@
 - [知乎purerender](https://zhuanlan.zhihu.com/purerender)
 - [知乎精读前端](https://zhuanlan.zhihu.com/FrontendPerusal)
 
+## 教程
+- [人工智能简介](https://course.elementsofai.com/)
+
 ## 工具类及工程化类
 - gitlab
 - jinkens
 - webpack
 - react react-router react-redux mobx
 - 装饰器
+- [nginx安装配置](https://www.runoob.com/linux/nginx-install-setup.html)
+
+## 类库
+- [一个实现各类图形的 CSS 库](https://github.com/chokcoco/magicCss)
 
 ## 目录说明
 - algorithm
