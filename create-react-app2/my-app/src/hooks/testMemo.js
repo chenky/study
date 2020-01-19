@@ -2,31 +2,18 @@ import React, {useState, useReducer,useMemo,useCallback} from 'react';
 import isEqual from 'lodash/isEqual';
 import cloneDeep from 'lodash/cloneDeep';
 
-// const Child = React.memo((props)=>{
-//   // const [data, setData] = useState({
-//   //   count: 0,
-//   //   name: 'cjg',
-//   //   age: 18,
-//   // });
-  
-//   // const handleClick = () => {
-//   //   const { count } = data;
-//   //   setData({
-//   //     ...data,
-//   //     count: count + 1,
-//   //   })
-//   // };
+const Child = React.memo((props)=>{
 
-//   console.log('child called');
+  console.log('child called');
 
-//   // return (<button onClick={handleClick}>count:{data.count}</button>)
-// return (<span>count:{props.count},age:{props.age}, usMoney: {props.money.usMoney}</span>)
-// }, (prevProps, nextProps)=>{
-//   console.log('prev:' + JSON.stringify(prevProps.money, null, 4));
-//   console.log('next:' + JSON.stringify(nextProps.money, null, 4));
-//   // console.log(prevProps.count === nextProps.count, prevProps.age === nextProps.age, prevProps.money.usMoney === nextProps.money.usMoney);
-//   return prevProps.count === nextProps.count && prevProps.age === nextProps.age && isEqual(prevProps.money, nextProps.money);
-// });
+  // return (<button onClick={handleClick}>count:{data.count}</button>)
+return (<span>count:{props.count},age:{props.age}, usMoney: {props.money.usMoney}</span>)
+}, (prevProps, nextProps)=>{
+  console.log('prev:' + JSON.stringify(prevProps.money, null, 4));
+  console.log('next:' + JSON.stringify(nextProps.money, null, 4));
+  // console.log(prevProps.count === nextProps.count, prevProps.age === nextProps.age, prevProps.money.usMoney === nextProps.money.usMoney);
+  return prevProps.count === nextProps.count && prevProps.age === nextProps.age && isEqual(prevProps.money, nextProps.money);
+});
 
 // const Child = (props)=>{
 //   console.log('child called');
@@ -60,12 +47,12 @@ export default function TestMemo() {
     // setMoney({
     //   ...money, usMoney: newUsMoney
     // })
-    // setMoney(money=>{
-    //   money.usMoney = money.usMoney+1;
-    //   const newMone = cloneDeep(money);
-    //   console.log(newMone);
-    //   return newMone;
-    // })
+    setMoney(money=>{
+      money.usMoney = money.usMoney+1;
+      const newMone = cloneDeep(money);
+      console.log(newMone);
+      return newMone;
+    });
     // setMoney({
     //   usMoney: 5
     // })
