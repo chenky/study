@@ -18,7 +18,8 @@ import './App.css';
 // import Effect from './hooks/hook_detail/effect';
 // import LayoutEffect from './hooks/hook_detail/layoutEffect';
 // import ForwardRef from './hooks/hook_detail/forwardRef';
-import { Counter1, Counter2 } from './hooks/hook_detail/customHook';
+// import { Counter1, Counter2 } from './hooks/hook_detail/customHook';
+import CaptureValue from './hooks/hook_detail2/capture_value';
 
 function App() {
   // let [ show, setShow ] = useState(true);
@@ -44,10 +45,11 @@ function App() {
       {/* <Effect></Effect> */}
       {/* <LayoutEffect></LayoutEffect> */}
       {/* <ForwardRef></ForwardRef> */}
-      <div>
+      {/* <div>
         <Counter1></Counter1>
         <Counter2></Counter2>
-      </div>
+      </div> */}
+      <CaptureValue></CaptureValue>
     </div>
   );
 }
