@@ -9,9 +9,10 @@ import './App.css';
 // import TestUseContext from './hooks/testUseContext';
 // import TestUseState from './hooks/testUseState';
 // import TestUseReducer from './hooks/testUseReducer';
-import TestUseCallback from './hooks/testUseCallback';
+// import TestUseCallback from './hooks/testUseCallback';
 // import TestUseImperativeHandle from './hooks/testUseImperativeHandle';
 // import TestMemo from './hooks/testMemo';
+import TestUseState4Child from './hooks/testUseState4Child';
 
 function App() {
   // let [ show, setShow ] = useState(true);
@@ -28,9 +29,10 @@ function App() {
       {/* <TestUseContext></TestUseContext> */}
       {/* <TestUseState></TestUseState> */}
       {/* <TestUseReducer></TestUseReducer> */}
-      <TestUseCallback></TestUseCallback>
+      {/* <TestUseCallback></TestUseCallback> */}
       {/* <TestUseImperativeHandle></TestUseImperativeHandle> */}
       {/* <TestMemo></TestMemo> */}
+      <TestUseState4Child></TestUseState4Child>
     </div>
   );
 }
