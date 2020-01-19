@@ -12,7 +12,13 @@ import './App.css';
 // import TestUseCallback from './hooks/testUseCallback';
 // import TestUseImperativeHandle from './hooks/testUseImperativeHandle';
 // import TestMemo from './hooks/testMemo';
-import TestUseState4Child from './hooks/testUseState4Child';
+// import TestUseState4Child from './hooks/testUseState4Child';
+// import Counter from './hooks/hook_detail/count'
+// import Counter2 from './hooks/hook_detail/memo';
+// import Effect from './hooks/hook_detail/effect';
+// import LayoutEffect from './hooks/hook_detail/layoutEffect';
+// import ForwardRef from './hooks/hook_detail/forwardRef';
+import { Counter1, Counter2 } from './hooks/hook_detail/customHook';
 
 function App() {
   // let [ show, setShow ] = useState(true);
@@ -32,7 +38,16 @@ function App() {
       {/* <TestUseCallback></TestUseCallback> */}
       {/* <TestUseImperativeHandle></TestUseImperativeHandle> */}
       {/* <TestMemo></TestMemo> */}
-      <TestUseState4Child></TestUseState4Child>
+      {/* <TestUseState4Child></TestUseState4Child> */}
+      {/* <Counter></Counter> */}
+      {/* <Counter2></Counter2> */}
+      {/* <Effect></Effect> */}
+      {/* <LayoutEffect></LayoutEffect> */}
+      {/* <ForwardRef></ForwardRef> */}
+      <div>
+        <Counter1></Counter1>
+        <Counter2></Counter2>
+      </div>
     </div>
   );
 }
