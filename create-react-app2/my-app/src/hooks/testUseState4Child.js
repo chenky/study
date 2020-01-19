@@ -24,28 +24,25 @@ return (<span>usMoney: {props.money.usMoney}</span>)
 export default function TestUseState4Child() {
   const [money, setMoney] = useState({usMoney: 5});
 
-  // const handleMoney = () => {    
-  //   const newUsMoney = money.usMoney + 1;
-  //   setMoney({
-  //     ...money, usMoney: newUsMoney
-  //   })
-  //   // setMoney(money=>{
-  //   //   money.usMoney = money.usMoney+1;
-  //   //   const newMone = cloneDeep(money);
-  //   //   console.log(newMone);
-  //   //   return money;
-  //   // });
-  // }
-
-  const handleMoney = () => { 
-    setTimeout(()=>{
-      // const newUsMoney = money.usMoney + 1;
-      // setMoney({
-      //   ...money, usMoney: newUsMoney
-      // })
-      setMoney({usMoney: money.usMoney+1})
-    },1000); 
+  const handleMoney = () => {    
+    // const newUsMoney = money.usMoney + 1;
+    // setMoney({
+    //   ...money, usMoney: newUsMoney
+    // })
+    // setMoney(money=>{
+    //   return {...money, usMoney: money.usMoney+1};
+    // });
   }
+
+  // const handleMoney = () => { 
+  //   setTimeout(()=>{
+  //     // const newUsMoney = money.usMoney + 1;
+  //     // setMoney({
+  //     //   ...money, usMoney: newUsMoney
+  //     // })
+  //     setMoney({usMoney: money.usMoney+1})
+  //   },1000); 
+  // }
 
   console.log('parent called');
 
