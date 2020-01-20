@@ -19,7 +19,9 @@ import './App.css';
 // import LayoutEffect from './hooks/hook_detail/layoutEffect';
 // import ForwardRef from './hooks/hook_detail/forwardRef';
 // import { Counter1, Counter2 } from './hooks/hook_detail/customHook';
-import CaptureValue from './hooks/hook_detail2/capture_value';
+// import CaptureValue from './hooks/hook_detail2/capture_value';
+// import RenderProps from './hooks/hook_detail2/renderProps';
+import RenderProps2 from './hooks/hook_detail2/renderProps2';
 
 function App() {
   // let [ show, setShow ] = useState(true);
@@ -49,7 +51,9 @@ function App() {
         <Counter1></Counter1>
         <Counter2></Counter2>
       </div> */}
-      <CaptureValue></CaptureValue>
+      {/* <CaptureValue></CaptureValue> */}
+      {/* <RenderProps></RenderProps> */}
+      <RenderProps2></RenderProps2>
     </div>
   );
 }
