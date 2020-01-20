@@ -21,7 +21,9 @@ import './App.css';
 // import { Counter1, Counter2 } from './hooks/hook_detail/customHook';
 // import CaptureValue from './hooks/hook_detail2/capture_value';
 // import RenderProps from './hooks/hook_detail2/renderProps';
-import RenderProps2 from './hooks/hook_detail2/renderProps2';
+// import RenderProps2 from './hooks/hook_detail2/renderProps2';
+// import TestUseResize from './hooks/hook_detail2/useResize';
+import TestUseEffect from './hooks/hook_detail2/TestUseEffect';
 
 function App() {
   // let [ show, setShow ] = useState(true);
@@ -53,7 +55,9 @@ function App() {
       </div> */}
       {/* <CaptureValue></CaptureValue> */}
       {/* <RenderProps></RenderProps> */}
-      <RenderProps2></RenderProps2>
+      {/* <RenderProps2></RenderProps2> */}
+      {/* <TestUseResize></TestUseResize> */}
+      <TestUseEffect></TestUseEffect>
     </div>
   );
 }
