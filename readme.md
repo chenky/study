@@ -34,6 +34,10 @@
 
 ## 类库
 - [一个实现各类图形的 CSS 库](https://github.com/chokcoco/magicCss)
+- custom react hooks
+  - [react use](https://github.com/chenky/react-use)
+  - [@umijs/hooks](https://github.com/umijs/hooks)
+    - [unijs/hooks教程说明](https://zhuanlan.zhihu.com/p/94030173)
 
 ## 目录说明
 - algorithm
