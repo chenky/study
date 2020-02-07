@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="show">
+    <br>
+    <br>
+  </div>
+  <script>
+    // var str = "aaa\r\nbbb\tccc\nddd\reeee ";
+    var str ="人省份  缴款日  上市日  到期日  主承  是否有担保↵ (2.0-3.0%)19招商CP008BC  AAA  40e  88D  中央国企  广东省  7/22  7/23  2019-10-18     无担保↵ (3.0-4.0%)19名城建设CP002  AA+  7e  366D  地方国企  浙江省  7/23  7/24  2020-07-23  上海浦东发展银行  无担保(257D 3.52)↵↵ (中票) ↵债券简称  主体评级  发行量  期限  发行人性质  发行人省份  缴款日  上市日  到期日  主承  是否有担保↵ (3.5-4.6%)19厦国贸MTN001  AAA  10e  3Y  地方国企  福建省  7/23  7/24  2022-07-23  兴业银行  无担保(2.45Y+N 4.95)↵ (3.4-4.1%)19华润置地MTN002A  AAA  5e  3Y  中央国企  广东省  7/23  7";
+    // var lines = str.split(/\r\n|\r|\n/gm);
+    var lines = str.split(/↵/gm); 
+    const htmlLines = lines.map(item=>{
+      // return "<div>" + item.replace(/\t/gm, "&nbsp;".repeat(6)) + "</div>";
+      return "<div>" + item + "</div>";
+    });
+    document.getElementById("show").innerHTML=htmlLines.join("");
+  </script>
+</body>
+</html>
