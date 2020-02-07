@@ -4,7 +4,7 @@ import React from 'react'
 // import TestUseDocTitle from './testUseDocTitle';
 // import TestUseEffect from './testUseEffect'
 // import TestUseContext from './testUseContext';
-// import TestUseState from './testUseState';
+import TestUseState from './testUseState';
 // import TestUseReducer from './testUseReducer';
 // import TestUseCallback from './testUseCallback';
 // import TestUseImperativeHandle from './testUseImperativeHandle';
@@ -20,7 +20,7 @@ import React from 'react'
 // import RenderProps from './hook_detail2/renderProps';
 // import RenderProps2 from './hook_detail2/renderProps2';
 // import TestUseResize from './hook_detail2/useResize';
-import TestUseEffect from './hook_detail2/TestUseEffect';
+// import TestUseEffect from './hook_detail2/TestUseEffect';
 
 export default function HooksIndex() {
   return (
@@ -33,7 +33,7 @@ export default function HooksIndex() {
       {/* <TestUseDocTitle></TestUseDocTitle> */}
       {/* <TestUseEffect></TestUseEffect> */}
       {/* <TestUseContext></TestUseContext> */}
-      {/* <TestUseState></TestUseState> */}
+      <TestUseState></TestUseState>
       {/* <TestUseReducer></TestUseReducer> */}
       {/* <TestUseCallback></TestUseCallback> */}
       {/* <TestUseImperativeHandle></TestUseImperativeHandle> */}
@@ -52,7 +52,7 @@ export default function HooksIndex() {
       {/* <RenderProps></RenderProps> */}
       {/* <RenderProps2></RenderProps2> */}
       {/* <TestUseResize></TestUseResize> */}
-      <TestUseEffect></TestUseEffect>
+      {/* <TestUseEffect></TestUseEffect> */}
     </div>
   )
 }

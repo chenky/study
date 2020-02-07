@@ -5,8 +5,9 @@ import mapUseState from './mapUseState';
 
 
 export default function StudyHook() {
-  // let [info, setInfo] = useState({age:1, sex: 'man'});
-  let [info, setInfo] = mapUseState({age:1, sex: 'man'});
+  const [info, setInfo] = useState({age:1, sex: 'man'});
+  // const [info, setInfo] = mapUseState({age:1, sex: 'man'});
+  // const [arr, setArr] = 
 
   // function setStateInfo(newInfo){
   //   setInfo({...newInfo});
@@ -14,9 +15,14 @@ export default function StudyHook() {
   // }
 
   function handleAge(){
-    ++info.age
-    // setStateInfo(info)
-    setInfo(info);
+    // ++info.age 
+    // setInfo({...info});
+    const newInfo = {age:10, sex: 'mwwwwan'}
+    setInfo(newInfo);
+    setTimeout(function(){
+      console.log(info);
+    },1000);
+    console.log(info);
   }
 
   function handleSex(){
