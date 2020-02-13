@@ -2,7 +2,8 @@ import React from 'react'
 // import ErrorValue from './errorValue';
 // import SetInterval from './setInterval';
 // import TestUseEventCallback from './testUseEventCallback'
-import TestMemo from './TestMemo';
+// import TestMemo from './TestMemo';
+import TestUseState from './TestUseState';
 
 export default function FnComTest() {
   return (
@@ -10,7 +11,8 @@ export default function FnComTest() {
       {/* <ErrorValue></ErrorValue> */}
       {/* <SetInterval></SetInterval> */}
       {/* <TestUseEventCallback></TestUseEventCallback> */}
-      <TestMemo></TestMemo>
+      {/* <TestMemo></TestMemo> */}
+      <TestUseState></TestUseState>
     </React.Fragment>
   );
 }
