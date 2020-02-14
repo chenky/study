@@ -3,7 +3,8 @@ import React from 'react'
 // import SetInterval from './setInterval';
 // import TestUseEventCallback from './testUseEventCallback'
 // import TestMemo from './TestMemo';
-import TestUseState from './TestUseState';
+// import TestUseState from './TestUseState';
+import PropsChangeFromParent from "./propsChangeFromParent";
 
 export default function FnComTest() {
   return (
@@ -12,7 +13,8 @@ export default function FnComTest() {
       {/* <SetInterval></SetInterval> */}
       {/* <TestUseEventCallback></TestUseEventCallback> */}
       {/* <TestMemo></TestMemo> */}
-      <TestUseState></TestUseState>
+      {/* <TestUseState></TestUseState> */}
+      <PropsChangeFromParent></PropsChangeFromParent>
     </React.Fragment>
   );
 }
