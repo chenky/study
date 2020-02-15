@@ -16,6 +16,9 @@
 15. 数据结构与算法
 16. [how to build your own react](https://pomb.us/build-your-own-react/)
 
+## 前端面试题
+- [The-Best-Frontend-JavaScript-Interview-Questions](https://performancejs.com/post/hde6d32/The-Best-Frontend-JavaScript-Interview-Questions-%28written-by-a-Frontend-Engineer%29)
+
 ## 技术博客
 - [倔金腾讯IVWEB团队](https://juejin.im/user/5a9f77666fb9a028c14a01eb)
 - [知乎purerender](https://zhuanlan.zhihu.com/purerender)
@@ -31,6 +34,9 @@
 - react react-router react-redux mobx
 - 装饰器
 - [nginx安装配置](https://www.runoob.com/linux/nginx-install-setup.html)
+- [跨平台错误日志系统sentry]
+  - [官网](https://sentry.io/welcome/)
+  - [github](https://github.com/getsentry/sentry-javascript)
 
 ## 类库
 - [一个实现各类图形的 CSS 库](https://github.com/chokcoco/magicCss)
