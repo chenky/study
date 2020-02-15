@@ -9,5 +9,17 @@
   - [这里还有一篇教程，介绍 Python 语言如何使用这个库。](https://nanonets.com/blog/ocr-with-tesseract/) 
 - [中文的密码学入门介绍，向非专业读者介绍了密码学的基本概念，没有涉及到技术细节。](https://learning.nervos.org/crypto-block/0-intro.html)
 
+### 前端开发
+
+#### 错误日志监控
+- [跨平台错误日志系统sentry]
+  - [官网](https://sentry.io/welcome/)
+  - [github](https://github.com/getsentry/sentry-javascript)
+
+#### [移动端调试工具](https://github.com/dt-fe/weekly/blob/v2/011.%E7%B2%BE%E8%AF%BB%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7.md)
+- [eruda]
+  - [官网](https://eruda.liriliri.io/)
+  - [github](https://github.com/liriliri/eruda)
+
 ## 经济理财
 - 17世纪荷兰郁金香泡沫，18世纪英国南海公司发行股票大骗局，其中大科学家牛顿就亏损了2万多英镑，相当于他10年总收入之和，1929-1933美国经济大萧条，1997-1998亚洲金融危机，2000-2001年互联网金融泡沫，2007-2008次贷危机。
