@@ -38,6 +38,8 @@
   - [react use](https://github.com/chenky/react-use)
   - [@umijs/hooks](https://github.com/umijs/hooks)
     - [unijs/hooks教程说明](https://zhuanlan.zhihu.com/p/94030173)
+- [128.精读《Hooks 取数 - swr 源码》.md](https://github.com/dt-fe/weekly/blob/v2/128.%E7%B2%BE%E8%AF%BB%E3%80%8AHooks%20%E5%8F%96%E6%95%B0%20-%20swr%20%E6%BA%90%E7%A0%81%E3%80%8B.md)
+  - [github address](https://github.com/zeit/swr)
 
 #### 前端进阶知识点
 1. [惰性求值](https://zhuanlan.zhihu.com/p/26535479)
