@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+.card {
+  width: 80%;
+  margin: 0 auto;
+  /* display: flex;
+  flex-direction: column; */
+  max-width: 600px;
+  background: #005e9b;
+  /* flex-basis: 250px; */
+  color: white;
+  padding: 2em;
+  text-align: left;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 2em;
+  grid-template-areas:
+    "image name"
+    "image position"
+    "social description";
+}
+
+.profile-name {
+  grid-area: name;
+}
+.profile-position {
+  grid-area: position;
+}
+.profile-info {
+  grid-area: description;
+}
+.profile-img {
+  grid-area: image;
+}
+.social-list {
+  grid-area: social;
+}
+  </style>
+</head>
+<body>
+  <a href="https://github.com/dt-fe/weekly/blob/v2/124.%E7%B2%BE%E8%AF%BB%E3%80%8A%E7%94%A8%20css%20grid%20%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E5%B8%83%E5%B1%80%E3%80%8B.md">
+    124.精读《用 css grid 重新思考布局》.md
+  </a>
+  <a href="https://cssgrid-generator.netlify.com/">css grid generator css grid 自动生成布局</a>
+  <div class="card">
+    <img src="https://i.pravatar.cc/125?image=3" alt="" class="profile-img" />
+    <ul class="social-list">
+      <li>
+        <a href="#" class="social-link"><i class="fab fa-dribbble-square"></i></a>
+      </li>
+      <li>
+        <a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
+      </li>
+      <li>
+        <a href="#" class="social-link"><i class="fab fa-twitter-square"></i></a>
+      </li>
+    </ul>
+    <h2 class="profile-name">Ramsey Harper</h2>
+    <p class="profile-position">Graphic Designer</p>
+    <p class="profile-info">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere a tempore,
+      dignissimos odit accusantium repellat quidem, sit molestias dolorum placeat
+      quas debitis ipsum esse rerum?
+    </p>
+  </div>
+</body>
+</html>
