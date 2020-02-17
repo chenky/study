@@ -6,6 +6,20 @@
 - vue
 - react
 
+### 目录结构
+
+```text
+├── .nuxt
+├── layouts
+├── pages
+├── store
+├── assets
+├── static
+├── middleware
+├── plugins
+├── nuxt.config.js
+```
+
 ## 片段
 
 ```javascript
