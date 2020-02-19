@@ -26,6 +26,7 @@
 - webpack
 - react react-router react-redux mobx
 - 装饰器
+- [git学习路径](https://learngitbranching.js.org/)
 - [nginx安装配置](https://www.runoob.com/linux/nginx-install-setup.html)
 - [跨平台错误日志系统sentry]
   - [官网](https://sentry.io/welcome/)
