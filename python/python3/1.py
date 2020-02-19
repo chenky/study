@@ -47,10 +47,14 @@
 # if True:
 #     print("Hello")
 
-class Test:
-    def __init__(self):
-        self.foo = 11
-        self._bar = 23
+# class Test:
+#     def __init__(self):
+#         self.foo = 11
+#         self._bar = 23
 
-t = Test()
-print(t.foo, t._bar)
+# t = Test()
+# print(t.foo, t._bar)
+
+knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+for k, v in knights.items():
+  print(k,v)
