@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class ArrayTree{
+    constructor() {
+      this.arr = [];
+    };
+    
+    insert = (num) => {
+      this.arr.push(num);   
+    }
+
+    getSortArr = () => {
+      return this.arr.sort();
+    }
+
+    search = (num) => {
+      const newArr = this.getSortArr();
+      return newArr.indexOf(num);
+    };
+
+    getElem = (index) => {
+      const newArr = this.getSortArr();
+      return this.arr[index];
+    }
+
+    log = () => {
+      let level = 1;      
+      // const maxLevel = Math.log2(this.arr.length);
+      const newArr = this.getSortArr();
+      for (let index = 1; index < newArr.length+1; index++) {
+        const element = newArr[index-1];
+        if(index>2**level-1){
+          level++;
+          console.log("\n");
+        }
+        console.log(element);
+      }
+    }
+
+  }
+
+
+  const insArrayTree = new ArrayTree();
+  insArrayTree.insert(7);
+  insArrayTree.insert(1);
+  insArrayTree.insert(5);
+  insArrayTree.insert(3);
+  insArrayTree.insert(0);
+  insArrayTree.insert(2);
+  insArrayTree.insert(6);
+  insArrayTree.insert(4);
+  console.log(insArrayTree.getElem(5));
+  console.log(insArrayTree.search(7));
+  console.log(insArrayTree.log());  
+  </script>
+</body>
+</html>
