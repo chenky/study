@@ -1,4 +1,5 @@
 ## 唤醒qq聊天窗口
+  window.open(`http://wpa.qq.com/msgrd?v=3&uin=${qidianNumber}&site=qq&menu=yes`)
  window.open(`tencent://Message/?Uin=${qidianNumber}&amp;websiteName=qtrade.com.cn&amp;Menu=yes`)
 
 ## git技巧
