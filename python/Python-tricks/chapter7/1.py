@@ -76,11 +76,16 @@
 
 # print( [hash(obj) for obj in objects] )
 
-xs = {'a': 1, 'b': 2}
-ys = {'b': 3, 'c': 4}
+# xs = {'a': 1, 'b': 2}
+# ys = {'b': 3, 'c': 4}
 # zs = {}
 # zs.update(xs)
 # zs.update(ys)
 # zs = dict(xs,**ys)
-zs = {**xs, **ys}
-print(zs)
+# zs = {**xs, **ys}
+# print(zs)
+
+
+# import datetime
+
+# print(dir(datetime))
