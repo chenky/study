@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Function.prototype.before = function(beforeFn){
+    //   const self = this;
+    //   return function(...arg){
+    //     beforeFn.apply(self, arg);
+    //     return self.apply(self, arg);
+    //   }
+    // }
+    // Function.prototype.after = function(afterFn){
+    //   const self = this;
+    //   return function(...arg){
+    //     const res = self.apply(self, arg);
+    //     afterFn.call(self, res);
+    //     return res
+    //   }
+    // }
+    // function add(a, b){
+    //   console.log("add function is called");
+    //   return a+b;
+    // }
+    // const newAdd = add.before((...arg)=>{
+    //   console.log(`${this.name} will be excuted and the argments is ${arg.join(',')}`);
+    // }).after((res)=>{
+    //   console.log(`${this.name} is excuted and the result is ${res}`);
+    // });
+    // newAdd(1,2);
+    // class Math {
+    //   add(a, b) {
+    //     return a + b;
+    //   }
+    // }
+
+    // function log(target, name) {
+    //   // let descriptor = Object.getOwnPropertyDescriptor(target, name);
+    //   // var oldValue = descriptor.value;
+
+    //   // descriptor.value = function() {
+    //   //   console.log(`Calling "${name}" with`, arguments);
+    //   //   return oldValue.apply(null, arguments);
+    //   // };
+
+    //   // return descriptor;
+    // }
+
+    // const math = new Math();
+    // const obj = {a:1};
+    // console.log(Object.getOwnPropertyDescriptor(obj,'a'))
+    // console.log(Object.getOwnPropertyDescriptor(math,'add'))
+    // log(math.add, "add");
+
+    // // passed parameters should get logged now
+    // math.add(2, 4);
+
+    function compose(...fns){
+      return function(...args){
+        return fns.reduce((acc, fn)=>{
+          // console.log(fn.name,acc);
+          if(Array.isArray(acc)){
+            return fn.apply(this, acc);
+          }
+          return fn.call(this, acc);
+        }, args);
+      }
+    }
+
+    function add(...args){
+      return args.reduce((total, currentValue)=>{
+        total+=currentValue;
+        return total;
+      });
+    }
+    // function multiply(a, b, c){
+    //   return a*b*c;
+    // }
+    const double = (...args) =>{
+      // console.log(args);
+      return args[0]*2;
+    } 
+    const triple = (...args) => args[0]*3
+    const quadruple = (...args) => args[0]*4
+    // console.log(add(1,2,3));
+    // console.log(multiply(3,2,3));
+    const c1 = compose(add, double, triple, quadruple);
+    console.log(c1(1,2));
+
+  </script>
+</body>
+</html>
