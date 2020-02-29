@@ -141,9 +141,15 @@
 - [自己整理的脑图](https://naotu.baidu.com/file/9506ac745baf842d4bd035ccf367ab22)
 
 ## 终端命令
-- mac
+- [mac](https://www.jianshu.com/p/3291de46f3ff)
   - 批量创建文件夹，mkdir dir{1..20} 批量创建文件夹名字是dir1-dir20
   - 批量创建文件， touch file{..20}.js 批量创建文件名字是file1.js-file20.js
+  - 批量删除空文件夹， rmdir dir{2..5} 如果非空文件夹需要使用  sudo rm -r -f dir{1..2}
+  - 批量删除文件， rm file{1..5}.js
+  - 单个文件重命名 mv 原名 新名， 如 mv 1.js 2.js  1.js->2.js
+  - 批量重命名 for i in *.js; do mv $i ${i//.js/.html}; done
+  - cd 跳转到某个目录
+  - ls 查看目录下到文件
 
 ## 经济理财
 - 17世纪荷兰郁金香泡沫，18世纪英国南海公司发行股票大骗局，其中大科学家牛顿就亏损了2万多英镑，相当于他10年总收入之和，1929-1933美国经济大萧条，1997-1998亚洲金融危机，2000-2001年互联网金融泡沫，2007-2008次贷危机。
