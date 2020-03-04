@@ -4,7 +4,7 @@ import React from 'react'
 // import TestUseDocTitle from './testUseDocTitle';
 // import TestUseEffect from './testUseEffect'
 // import TestUseContext from './testUseContext';
-import TestUseState from './testUseState';
+// import TestUseState from './testUseState';
 // import TestUseReducer from './testUseReducer';
 // import TestUseCallback from './testUseCallback';
 // import TestUseImperativeHandle from './testUseImperativeHandle';
@@ -16,7 +16,7 @@ import TestUseState from './testUseState';
 // import LayoutEffect from './hook_detail/layoutEffect';
 // import ForwardRef from './hook_detail/forwardRef';
 // import { Counter1, Counter2 } from './hook_detail/customHook';
-// import CaptureValue from './hook_detail2/capture_value';
+import CaptureValue from './hook_detail2/capture_value';
 // import RenderProps from './hook_detail2/renderProps';
 // import RenderProps2 from './hook_detail2/renderProps2';
 // import TestUseResize from './hook_detail2/useResize';
@@ -33,7 +33,7 @@ export default function HooksIndex() {
       {/* <TestUseDocTitle></TestUseDocTitle> */}
       {/* <TestUseEffect></TestUseEffect> */}
       {/* <TestUseContext></TestUseContext> */}
-      <TestUseState></TestUseState>
+      {/* <TestUseState></TestUseState> */}
       {/* <TestUseReducer></TestUseReducer> */}
       {/* <TestUseCallback></TestUseCallback> */}
       {/* <TestUseImperativeHandle></TestUseImperativeHandle> */}
@@ -48,7 +48,7 @@ export default function HooksIndex() {
         <Counter1></Counter1>
         <Counter2></Counter2>
       </div> */}
-      {/* <CaptureValue></CaptureValue> */}
+      <CaptureValue></CaptureValue>
       {/* <RenderProps></RenderProps> */}
       {/* <RenderProps2></RenderProps2> */}
       {/* <TestUseResize></TestUseResize> */}
