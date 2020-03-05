@@ -48,6 +48,7 @@ export default function MessageThread() {
 
   const handleMessageChange = e => {
     setMessage(e.target.value);
+    console.log("get the lastest value after set input value", message.current);
   };
 
   return (
