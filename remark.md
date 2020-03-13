@@ -79,6 +79,8 @@
 - [HTML 源码转换为 Markdown 的 JS 库，可以定制规则](https://github.com/mdnice/sitdown)
 - [一个在线生成数学函数图形的网页小工具](https://helloacm.com/tools/math-plot-graph/)
 - [一个 Python 代码的加密器，可以防止别人看脚本源码](https://github.com/ga0/pyprotect)
+- [es2020新特性](https://alligator.io/js/es2020/)
+- [前端面试复习笔记](https://github.com/CavsZhouyou/Front-End-Interview-Notebook)
 
 ## 前端开发
 
