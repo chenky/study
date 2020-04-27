@@ -1,3 +1,4 @@
+// http://www.ruanyifeng.com/blog/2015/04/generator.html
 function* gen(x){
   var y = yield x+2;
   return y;
@@ -37,7 +38,8 @@ function* gen1(){
   })
 }
 
-// var g1 = gen1();
+var g1 = gen1();
+console.log(g1.next().value)
 // g1.next().value.then(()=>{
 //   g1.next().value.then(()=>{})
 // })
@@ -55,5 +57,5 @@ function* gen1(){
 // autorun(gen1)
 
 // 并行运行所有的generator
-Promise.all(gen1())
+// Promise.all(gen1())
 
