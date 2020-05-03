@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function* gen1(){
+      yield new Promise((resolve, reject)=>{
+        setTimeout(function(){
+          console.log('gen1 called1')
+          resolve()
+        }, 3000)
+      })
+      yield new Promise((resolve, reject)=>{
+        setTimeout(function(){
+          console.log('gen1 called2')
+          resolve()
+        }, 3000)
+      })
+    }
+
+    var g1 = gen1();
+    var res = g1.next();
+    console.log(res)
+    // console.log(g1.next().value)
+  </script>
+</body>
+</html>
