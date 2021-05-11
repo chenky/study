@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 实现算数表达式求值
+function evaluate(expression){
+  let ops = [], vals = [];
+  if(typeof expression !== "string" || expression.length<1) throw new Error("expression is not avalible");
+  const formatExpression = expression.replace(/\s+/g,"")
+  for (let index = 0; index < formatExpression.length; index++) {
+    const character = formatExpression[index];
+    if(character)
+    switch (character) {
+      case "(":
+        break;
+      case "+":
+      case "-":
+      case "*":
+      case "/":
+        ops.push(character)
+        break;
+      case ")":
+        const op = ops.pop()
+        let val = vals.pop()
+        switch (op) {
+          case "+":
+          case "-":
+          case "*":
+          case "/":
+            val = eval(vals.pop() + op + val);
+            break;
+          default:
+            break;
+        }
+        vals.push(val);
+        break;       
+      default:
+        // 否则是数字，直接压入栈
+        vals.push(character)
+        break;
+    }
+  }
+  return vals.pop();
+}
+
+const res = evaluate("(1+((5-2)*(8/4)))");
+console.log(res);
+  </script>
+</body>
+</html>
