@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chapter16</title>
+  </head>
+  <body>
+    <script>
+      function pubsub() {
+        const subscribes = [];
+        return {
+          subscribe: function (sub) {
+            subscribes.push(sub);
+          },
+          pub: function (publication) {
+            for (let index = 0; index < subscribes.length; index++) {
+              const sub = subscribes[index];
+              sub(publication);
+            }
+          },
+        };
+      }
+
+      const my_pubsub = new pubsub();
+      my_pubsub.subscribe(function (publication) {
+        console.log("this obj", this, this.length);
+        // this.length = 0;
+        console.log("this obj", this, this.subscribes);
+        console.log("sub1", publication);
+      });
+      my_pubsub.pub("publication");
+    </script>
+  </body>
+</html>
