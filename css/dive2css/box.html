@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 等高列，table+table cell, flex */
+
+      /* table+table cell */
+      .panel {
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+      .wrap {
+        display: table;
+        width: 100%;
+        border-spacing: 10px 0;
+      }
+      .main,
+      .sider {
+        display: table-cell;
+      }
+      .main {
+        width: 70%;
+        border: 1px solid red;
+      }
+      .sider {
+        width: 30%;
+        border: 1px solid rgb(33, 48, 187);
+      }
+      /* table+table cell */
+      .wrap_flex {
+        display: flex;
+      }
+      .main_flex {
+        border: 1px solid red;
+        width: 70%;
+      }
+      .sider_flex {
+        margin-left: 10px;
+        border: 1px solid rgb(33, 48, 187);
+        width: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- table+table cell -->
+    <div class="panel">
+      <div class="wrap">
+        <div class="main">
+          adfsdfadfsadfak,<br />wejekfekfj;kldfj,wenf;lklasdkjf;<br />asdkfj;askdfn;lfasjkdf;<br />lakejf;kdafj;askdjf;<br />akdjfaksdfj;asdkf;akfsaldfj;askfj
+        </div>
+        <div class="sider">aaaadskf,;</div>
+      </div>
+    </div>
+    <!-- table+table cell -->
+    <br /><br /><br />
+    <!-- flex -->
+    <div class="wrap_flex">
+      <div class="main_flex">
+        adfsdfadfsadfak,<br />wejekfekfj;kldfj,wenf;lklasdkjf;<br />asdkfj;askdfn;lfasjkdf;<br />lakejf;kdafj;askdjf;<br />akdjfaksdfj;asdkf;akfsaldfj;askfj
+      </div>
+      <div class="sider_flex">aaaadskf,;</div>
+    </div>
+  </body>
+</html>
