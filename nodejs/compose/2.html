@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function compose(fns) {
+        return function (context, next1) {
+          let lastIndex = -1;
+          return dispatch(0);
+          function dispatch(i) {
+            console.log("aaaa", i, lastIndex);
+            if (i <= lastIndex)
+              return Promise.reject(new Error("next() called multiple times"));
+            lastIndex = i;
+            let fn = fns[i];
+            // 洋葱的中心位置了，需要执行next中心位置的next函数
+            if (i === fns.length) {
+              console.log("i===fns.length", fn, next1);
+              fn = next1;
+            }
+            if (!fn) return Promise.resolve();
+            try {
+              return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));
+            } catch (error) {
+              return Promise.reject(error);
+            }
+          }
+        };
+      }
+
+      class App {
+        constructor() {
+          // 定义中间件数组
+          this.middleware = [];
+        }
+
+        use(fn) {
+          if (fn && typeof fn !== "function") throw new Error("入参必须是函数");
+          // 入参 fn 都传入到 middleware 中间件数组中
+          this.middleware.push(fn);
+        }
+
+        listen(...arg) {
+          /**
+           * 源码，this.callbakck() 作为请求处理函数，本处省略该过程
+           * const server = http.createServer(this.callback());
+           * return server.listen(...args);
+           */
+          this.callback();
+        }
+
+        callback() {
+          const fn = compose(this.middleware);
+          return this.handleRequest(fn);
+        }
+
+        handleRequest(fnMiddleware) {
+          return fnMiddleware({}, () => {
+            console.log("bbbbbbbbbb");
+          })
+            .then(() => {
+              console.log("over");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      }
+
+      const app = new App();
+
+      app.use(async (ctx, next) => {
+        console.log("1");
+        // await next();
+        await next();
+        console.log("1-1");
+        // setTimeout(() => {
+        //   console.log("1-1");
+        // }, 1000);
+      });
+
+      app.use(async (ctx, next) => {
+        console.log("2");
+        await next();
+        console.log("2-2");
+        // setTimeout(() => {
+        //   console.log("2-2");
+        // }, 2000);
+      });
+
+      app.use(async (ctx, next) => {
+        console.log("3");
+        await next();
+        console.log("3-3");
+        // setTimeout(() => {
+        //   console.log("3-3");
+        // }, 3000);
+      });
+
+      app.listen(3000);
+    </script>
+  </body>
+</html>
