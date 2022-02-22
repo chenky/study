@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test">test</div>
+    <script>
+      import puppeteer from "https://www.jsdelivr.com/package/npm/puppeteer";
+      const test = document.querySelector("#test");
+      test.addEventListener(
+        "click",
+        (e) => {
+          console.log(e.isTrusted);
+        },
+        false
+      );
+      var simulateMouseEvent = async function (
+        element,
+        eventName,
+        coordX,
+        coordY
+      ) {
+        await element.dispatchEvent(
+          new MouseEvent(eventName, {
+            view: window,
+            bubbles: true,
+            cancelable: true,
+            clientX: coordX,
+            clientY: coordY,
+            button: 0,
+          })
+        );
+      };
+
+      var box = test.getBoundingClientRect(),
+        coordX = box.left + (box.right - box.left) / 2,
+        coordY = box.top + (box.bottom - box.top) / 2;
+
+      simulateMouseEvent(test, "mousedown", coordX, coordY);
+      simulateMouseEvent(test, "click", coordX, coordY);
+      simulateMouseEvent(test, "mouseup", coordX, coordY);
+
+      // async function down(){
+      //   await
+      // }
+    </script>
+  </body>
+</html>
