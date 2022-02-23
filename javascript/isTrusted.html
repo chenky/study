@@ -34,13 +34,13 @@
       //     coordX = box.left + (box.right - box.left) / 2,
       //     coordY = box.top + (box.bottom - box.top) / 2;
       //   simulateMouseEvent(test, "click", coordX, coordY);
-      chrome.debugger.attach(target, "1.2", function () {
-        chrome.debugger.sendCommand(
-          target,
-          "Input.dispatchMouseEvent",
-          arguments
-        );
-      });
+      //   chrome.debugger.attach(target, "1.2", function () {
+      //     chrome.debugger.sendCommand(
+      //       target,
+      //       "Input.dispatchMouseEvent",
+      //       arguments
+      //     );
+      //   });
     </script>
   </body>
 </html>
