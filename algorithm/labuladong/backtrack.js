@@ -111,7 +111,7 @@ function NQueens(n) {
 
     function isValid(row, col) {
         // 上，左上，右上
-        for (let i = 0; i < n; i++) {
+        for (let i = 0; i < row; i++) {
             if (board[i][col] === 'Q')
                 return false
         }
@@ -132,24 +132,24 @@ function NQueens(n) {
         if (row === board.length) {
             res.push(JSON.parse(JSON.stringify(board)))
             // res.push(board.map((row) => row.join("")))
-            // return
+            return
             // 如果只需要一个解
-            return true
+            // return true
         }
         for (let col = 0; col < n; col++) {
             if (!isValid(row, col)) {
                 continue
             }
             board[row][col] = 'Q'
-            //_backtrack(row + 1)
+            _backtrack(row + 1)
             // 只需要一个解
-            if (_backtrack(row + 1)) {
-                return true
-            }
+            // if (_backtrack(row + 1)) {
+            //     return true
+            // }
             board[row][col] = '.'
         }
         // 到这里了说明无解
-        return false
+        // return false
     }
 
 
