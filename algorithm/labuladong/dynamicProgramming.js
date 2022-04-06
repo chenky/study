@@ -128,4 +128,56 @@ function miniHp(grid) {
         return memo[i][j]
     }
 }
-console.log(miniHp([[0, 0, 0], [0, -200, 10], [0, 0, -5]]))
+// console.log(miniHp([[0, 0, 0], [0, -200, 10], [0, 0, -5]]))
+
+/**
+ * https://mp.weixin.qq.com/s/D-iahj0gSs1UnDv_6KsNWQ
+ * 旅行最短花费 
+ * [[0,1,100],[1,2,100],[0,2,500]]
+ * */
+function cheapestPrice(flights, src, dist, k) {
+    const cityLens = flights.length
+    const memo = Array(cityLens).fill(-888).map(() => {
+        return Array(k).fill(-888)
+    })
+
+    const indegree = new Map()
+    flights.forEach(flight => {
+        const [from, to, price] = flight
+        const oldVal = indegree.get(to) ?? []
+        indegree.set(to, [...oldVal, { from, price }])
+    })
+
+    return _dp(dist, k - 1)
+
+    function _dp(dist, k) {
+
+        if (dist === src) {
+            return 0
+        }
+        if (k < 0) {
+            return -1
+        }
+        if (memo[dist][k] !== -888) {
+            return memo[dist][k]
+        }
+        // console.log(dist, k, cityLens)
+        let res = Number.MAX_SAFE_INTEGER
+        // dist must be in flights
+        if (indegree.has(dist)) {
+            const adjs = indegree.get(dist)
+            adjs.forEach(adj => {
+                const { from, price } = adj
+                const subProblem = _dp(from, k - 1)
+                if (subProblem !== -1) {
+                    res = Math.min(subProblem + price, res)
+                }
+            })
+        }
+
+        memo[dist][k] = res === Number.MAX_SAFE_INTEGER ? -1 : res
+        // console.log(JSON.stringify(memo, null, 2))
+        return memo[dist][k]
+    }
+}
+console.log(cheapestPrice([[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 2))
