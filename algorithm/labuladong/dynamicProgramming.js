@@ -101,4 +101,31 @@ function knapsack(w, n, wt, vals) {
     }
     return memo[n][w]
 }
-console.log(knapsack(4, 3, [2, 1, 3], [4, 2, 3]))
+// console.log(knapsack(4, 3, [2, 1, 3], [4, 2, 3]))
+
+// 魔塔问题
+// https://mp.weixin.qq.com/s/MydL7eyzdfJc6jYZNwFWWw
+
+function miniHp(grid) {
+    const rows = grid.length, cols = grid[0].length
+    const memo = Array(rows).fill(-2).map(() => Array(cols).fill(-2))
+    return _dp(grid, 0, 0)
+    function _dp(grid, i, j) {
+        if (i === rows - 1 && j === cols - 1) {
+            return grid[i][j] >= 0 ? 1 : 1 - grid[i][j]
+        }
+        if (i === rows || j === cols) {
+            return Number.MAX_SAFE_INTEGER
+        }
+        if (memo[i][j] !== -2) {
+            return memo[i][j]
+        }
+        const res = Math.min(
+            _dp(grid, i, j + 1),
+            _dp(grid, i + 1, j)
+        ) - grid[i][j]
+        memo[i][j] = res <= 0 ? 1 : res
+        return memo[i][j]
+    }
+}
+console.log(miniHp([[0, 0, 0], [0, -200, 10], [0, 0, -5]]))
