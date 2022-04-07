@@ -232,4 +232,23 @@ function isMatch(str, partern) {
         return memo.get(key)
     }
 }
-console.log(isMatch('abcd', 'aba*cd'), isMatch('abaaac', 'aba*c'), isMatch('abc', 'abc'), isMatch('abacc', 'a.dcc'))
+// console.log(isMatch('abcd', 'aba*cd'), isMatch('abaaac', 'aba*c'), isMatch('abc', 'abc'), isMatch('abacc', 'a.dcc'))
+function maxCoins(nums) {
+    const n = nums.length
+    const points = Array(n + 2).map((item, index) => {
+        return [0, n + 1].includes(index) ? 1 : nums[index - 1]
+    })
+    const dp = Array(n + 2).fill(0)
+    for (let i = n; i >= 0; i--) {
+        for (let j = i + 1; j < n + 2; j++) {
+            for (let k = i + 1; k < j; k++) {
+                dp[i][j] = Math.max(
+                    dp[i][j],
+                    dp[i][k] + dp[k][j] + points[i] * points[k] * points[j]
+                )
+            }
+        }
+
+    }
+    return dp[0][n + 1]
+}
