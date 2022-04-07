@@ -180,4 +180,56 @@ function cheapestPrice(flights, src, dist, k) {
         return memo[dist][k]
     }
 }
-console.log(cheapestPrice([[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 2))
+// console.log(cheapestPrice([[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 2))
+
+function isMatch(str, partern) {
+    const m = str.length, n = partern.length
+    const memo = new Map()
+    return _dp(str, 0, partern, 0)
+    function _dp(str, i, partern, j) {
+        if (j === n) {
+            return i === m
+        }
+        if (i === m) {
+            // 如果能匹配空串，一定是字符和 * 成对儿出现， 所以一定剩余偶数个
+            if ((n - j) % 2 === 1) {
+                return false
+            }
+            while (j + 1 < n) {
+                if (partern[j + 1] !== '*') {
+                    return false
+                }
+                j += 2
+            }
+            return true
+        }
+        const key = `${i}_${j}`
+        if (memo.has(key)) {
+            return memo.get(key)
+        }
+        let res = false
+        // 匹配
+        if (str[i] === partern[j] || partern[j] === '.') {
+            if (j < n - 1 && partern[j + 1] === '*') {
+                // 有*可以匹配0次或者多次
+                res = _dp(str, i, partern, j + 2) || _dp(str, i + 1, partern, j)
+            } else {
+                // 没有*，乖乖一个个对比
+                res = _dp(str, i + 1, partern, j + 1)
+            }
+        } else {
+            // 不匹配
+            if (j < n - 1 && partern[j + 1] === '*') {
+                // 不匹配的情况下，有*匹配0次
+                res = _dp(str, i, partern, j + 2)
+            } else {
+                // 没有*，乖乖一个个对比
+                res = false
+            }
+
+        }
+        memo.set(key, res)
+        return memo.get(key)
+    }
+}
+console.log(isMatch('abcd', 'aba*cd'), isMatch('abaaac', 'aba*c'), isMatch('abc', 'abc'), isMatch('abacc', 'a.dcc'))
