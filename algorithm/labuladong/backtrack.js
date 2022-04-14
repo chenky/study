@@ -1,3 +1,23 @@
+/**
+ * 回溯算法三要素，解决一个回溯问题，实际上就是一个决策树的遍历过程
+ * 路径：已经做出的选择
+ * 选择：当前可以做的选择
+ * 结束条件：到底决策树底层，无法再做选择的条件
+*/
+const res = []
+function mockbacktrack(path, list) {
+    if (false) { // 结束条件
+        res.push(...path)
+        return
+    }
+    for (let i = 0; i < list.length; i++) {
+        const element = list[i]
+        // 做选择
+        mockbacktrack(path, list)
+        // 撤销选择
+    }
+}
+
 // 路径，选择，结束条件，回溯前做选择，回溯后撤销选择，很像二叉树的前中后序遍历
 class BackTrack {
     #res = []
