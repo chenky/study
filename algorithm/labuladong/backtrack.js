@@ -4,19 +4,19 @@
  * 选择：当前可以做的选择
  * 结束条件：到底决策树底层，无法再做选择的条件
 */
-const res = []
-function mockbacktrack(path, list) {
-    if (false) { // 结束条件
-        res.push(...path)
-        return
-    }
-    for (let i = 0; i < list.length; i++) {
-        const element = list[i]
-        // 做选择
-        mockbacktrack(path, list)
-        // 撤销选择
-    }
-}
+// const res = []
+// function mockbacktrack(path, list) {
+//     if (false) { // 结束条件
+//         res.push(...path)
+//         return
+//     }
+//     for (let i = 0; i < list.length; i++) {
+//         const element = list[i]
+//         // 做选择
+//         mockbacktrack(path, list)
+//         // 撤销选择
+//     }
+// }
 
 // 路径，选择，结束条件，回溯前做选择，回溯后撤销选择，很像二叉树的前中后序遍历
 class BackTrack {
@@ -41,6 +41,32 @@ class BackTrack {
     }
 
 }
+
+/**
+ * 排列，组合，子集问题
+ * https://mp.weixin.qq.com/s/nrTpZ9b9RvfNsaEkJoHMvg
+*/
+// 子集问题
+function subsets(nums) {
+    const res = []
+    const path = []
+    backtrack(nums, 0)
+    return res
+
+    function backtrack(nums, start) {
+        res.push(...path)
+        // 通过控制遍历顺序来防止进入死循环
+        for (let i = start; i < nums.length; i++) {
+            const element = nums[i]
+            // 做选择
+            path.push(element)
+            backtrack(nums, start + 1)
+            // 取消选择
+            path.pop()
+        }
+    }
+}
+console.log(subsets([1, 2, 3]))
 
 
 // 无缓存版本
@@ -177,5 +203,5 @@ function NQueens(n) {
     return res
 }
 
-console.log(NQueens(4))
+// console.log(NQueens(4))
 
