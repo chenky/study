@@ -79,7 +79,7 @@ function slideWindow(str, target) {
 }
 // console.log(slideWindow("COEBANC", "ABC"))
 // console.log(slideWindow("ADOBECOEBANC", "ABC"))
-[].i
+// [].i
 
 function checkIsIncludes(s, t) {
     let left = 0, right = 0
