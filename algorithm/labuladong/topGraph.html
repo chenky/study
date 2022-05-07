@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>top graph</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * courses = 2, prerequisites = [[1,0],[2,0]]
+       */
+      function buildCoursesGraph(prerequisites) {
+        const graph = new Map();
+        for (const [to, from] of prerequisites) {
+          const old = graph.get(from) ?? [];
+          graph.set(from, [...old, to]);
+        }
+        return graph;
+      }
+
+      /**
+       * dfs检测环， 并且输出拓扑结构
+       */
+      function top1(graph, courses) {
+        const visited = new Map();
+        const onPath = new Map();
+        let hasCycle = false;
+        const postOrder = [];
+        let cycleElems = [];
+        const cycleElemsRes = [];
+
+        // 可能有多个图，所以每个都要遍历一次
+        for (let i = 0; i < courses; i++) {
+          _traverse(graph, i);
+        }
+
+        function _traverse(graph, s) {
+          if (onPath.get(s)) {
+            hasCycle = true;
+            // 把环加入到结果集中
+            const temp = [];
+            // console.log(cycleElems);
+            let lastIndex = cycleElems.length - 1;
+            // 环的起点
+            temp.push(cycleElems[lastIndex--]);
+            while (cycleElems[lastIndex] !== s) {
+              temp.push(cycleElems[lastIndex--]);
+            }
+            // 环的终点
+            temp.push(cycleElems[lastIndex--]);
+            console.log(temp);
+            cycleElemsRes.push(temp);
+          }
+          // 只需要找到第一个环就返回
+          //   if (visited.get(s) || hasCycle) {
+          //     return;
+          //   }
+          // 这个判断条件可以找到所有环找到所有环
+          if (visited.get(s)) {
+            return;
+          }
+          cycleElems.push(s);
+          visited.set(s, true);
+          onPath.set(s, true);
+          graph.get(s).forEach((val, index) => {
+            _traverse(graph, val);
+          });
+          cycleElems.pop();
+          postOrder.push(s);
+          onPath.set(s, false);
+        }
+        // console.log(hasCycle ? [] : postOrder.reverse(), cycleElemsRes);
+        return hasCycle ? [] : postOrder.reverse();
+      }
+
+      //   const graph = buildCoursesGraph([
+      //     [1, 0],
+      //     [0, 1],
+      //     [2, 1],
+      //     [0, 2],
+      //   ]);
+      //   top1(graph, 3);
+      const graph2 = buildCoursesGraph([
+        [1, 0],
+        [0, 1],
+        [2, 1],
+        [0, 2],
+        [3, 2],
+        [4, 3],
+        [0, 3],
+        [2, 4],
+      ]);
+      top1(graph2, 5);
+    </script>
+  </body>
+</html>
