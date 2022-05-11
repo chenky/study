@@ -9,6 +9,13 @@ function isPrim(num) {
 }
 
 // 判断范围内有多少个素数
+// reference: https://mp.weixin.qq.com/s/EVhp3D_hwI8RFZlu5sQaIA
+/**
+ * 该算法的时间复杂度比较难算，显然时间跟这个嵌套 for 循环有关，其操作数应该是：
+   n/2 + n/3 + n/5 + n/7 + …
+= n × (1/2 + 1/3 + 1/5 + 1/7…)
+括号中是素数的倒数和。其最终结果是 O(N * loglogN)，有兴趣的读者可以查一下该算法的时间复杂度证明。
+*/
 function countPrims(num) {
     const isPrims = Array(num).fill(true)
     for (let i = 2; i < Math.sqrt(num); i++) {
@@ -20,7 +27,7 @@ function countPrims(num) {
 
     }
     let count = 0
-    for (let i = 0; i < num; i++) {
+    for (let i = 2; i < num; i++) {
         if (isPrims[i]) {
             count++
         }
