@@ -49,3 +49,31 @@ function nSum(nums, n, target) {
 }
 
 console.log(nSum([1, 0, -1, 0, -2, 2], 4, 0))
+
+function autoRun() {
+
+    function _reload() {
+        location.reload()
+    }
+
+    setInterval(() => {
+        _reload()
+    }, 2 * 60 * 1000)
+    _reload()
+
+    let timeId = null
+    function _run() {
+        clearInterval(timeId)
+        const btn = document.querySelector('button[data-testid="gamepadLike"]')
+        timeId = setInterval(() => {
+            btn.click()
+        }, 500)
+    }
+    _run()
+
+    window.onload = function () {
+        _run()
+    }
+
+}
+autoRun()
