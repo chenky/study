@@ -11,6 +11,7 @@ function isPrim(num) {
 // 判断范围内有多少个素数
 // reference: https://mp.weixin.qq.com/s/EVhp3D_hwI8RFZlu5sQaIA
 /**
+ * 其实这个算法有一个名字，叫做 Sieve of Eratosthenes
  * 该算法的时间复杂度比较难算，显然时间跟这个嵌套 for 循环有关，其操作数应该是：
    n/2 + n/3 + n/5 + n/7 + …
 = n × (1/2 + 1/3 + 1/5 + 1/7…)
