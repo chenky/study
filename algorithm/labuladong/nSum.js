@@ -1,3 +1,7 @@
+/**
+ * 求解n个数之和
+ * https://mp.weixin.qq.com/s/fSyJVvggxHq28a0SdmZm6Q
+*/
 function nSum(nums, n, target) {
     const sortNums = nums.sort()
     // console.log(sortNums)
