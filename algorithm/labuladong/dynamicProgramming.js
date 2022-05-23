@@ -252,3 +252,33 @@ function maxCoins(nums) {
     }
     return dp[0][n + 1]
 }
+
+// leetcode 115 https://mp.weixin.qq.com/s/6vwNBr48D36n6E3EawFUqg
+// 给你输入一个字符串s和一个字符串t，请你计算在s的子序列中t出现的次数。比如题目给的例子，输入s = "babgbag", t = "bag"，算法返回 5：
+function numDistinct(s, t) {
+    const m = s.length, n = t.length
+    const memo = Array(m).fill(Array(n).fill(-1))
+    console.log(memo)
+
+    function _(s, i, t, j) {
+        if (j === n - 1) {
+            return 1
+        }
+        // s[i...] 长度小于t[j...]， 那肯定不可能匹配
+        if (m - i - 1 < n - j - 1) {
+            return 0
+        }
+        if (memo[i][j] !== -1) return memo[i][j]
+        let res = 0
+        if (s[i] === t[j]) {
+            // _(s, i+1, t, j)是为了匹配 s: aab   t: ab, 要匹配a_b, _ab这两种情况
+            res += _(s, i + 1, t, j + 1) + _(s, i + 1, t, j)
+        } else {
+            res += _(s, i + 1, t, j)
+        }
+        memo[i][j] = res
+        return res
+    }
+    return _(s, 0, t, 0)
+}
+console.log('numDistinct', numDistinct('babgbag', 'bag'))

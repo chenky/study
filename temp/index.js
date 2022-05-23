@@ -13,4 +13,19 @@ function sum2(nums, _sum) {
     return sum2(nums, _sum + lastNum)
 }
 
-console.log(sum2([1, 2, 3, 4, 5], 0))
+// console.log(sum2([1, 2, 3, 4, 5], 0))
+
+function a() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('1s later')
+        }, 1000)
+    })
+}
+
+async function b() {
+    console.log('start run b function')
+    await a()
+    return 'after a function'
+}
+console.log(b())
