@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        得到一个两数之间的随机整数，包括两个数在内
+        */
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+      }
+      // 快速排序，一个函数搞定
+      function quickSort2(nums, left, right) {
+        if (left > right) {
+          return;
+        }
+        // const randomIndex = getRandomIntInclusive(left, right);
+        const randomIndex = left;
+        // console.log(left, right, randomIndex);
+        const pivot = nums[randomIndex];
+        let i = left,
+          j = right;
+
+        while (i < j) {
+          // 先从右往左找
+          while (nums[j] >= pivot && i < j) {
+            j--;
+          }
+          // 从左往右
+          while (nums[i] <= pivot && i < j) {
+            i++;
+          }
+          if (i < j) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+          }
+        }
+
+        [nums[i], nums[randomIndex]] = [nums[randomIndex], nums[i]];
+        quickSort2(nums, left, i - 1);
+        quickSort2(nums, i + 1, right);
+
+        // if (
+        //   (i > randomIndex && nums[i] < nums[randomIndex]) ||
+        //   (i < randomIndex && nums[i] > nums[randomIndex])
+        // ) {
+        //   [nums[i], nums[randomIndex]] = [nums[randomIndex], nums[i]];
+        //   quickSort2(nums, left, i - 1);
+        //   quickSort2(nums, i + 1, right);
+        // } else {
+        //   quickSort2(nums, left, randomIndex - 1);
+        //   quickSort2(nums, randomIndex + 1, right);
+        // }
+      }
+
+      const nums = [3, 2, 1, 5, 4, 10, 7, 9, 6, 0, 22, 40, 19, 17, 14, 23];
+      quickSort2(nums, 0, nums.length - 1);
+      console.log(nums);
+    </script>
+  </body>
+</html>

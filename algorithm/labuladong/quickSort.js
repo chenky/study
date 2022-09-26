@@ -68,4 +68,50 @@ function findKthLargest(nums, k) {
     return -1
 }
 
+// 快速排序，一个函数搞定
+function quickSort2(nums, left, right) {
+    if (left > right) {
+        return
+    }
+    // const randomIndex = getRandomIntInclusive(left, right);
+    const randomIndex = left
+    // console.log(left, right, randomIndex);
+    const pivot = nums[randomIndex]
+    let i = left,
+        j = right
+
+    while (i < j) {
+        // 先从右往左找
+        while (nums[j] >= pivot && i < j) {
+            j--
+        }
+        // 从左往右
+        while (nums[i] <= pivot && i < j) {
+            i++
+        }
+        if (i < j) {
+            [nums[i], nums[j]] = [nums[j], nums[i]]
+        }
+    }
+
+    [nums[i], nums[randomIndex]] = [nums[randomIndex], nums[i]]
+    quickSort2(nums, left, i - 1)
+    quickSort2(nums, i + 1, right)
+
+    // if (
+    //   (i > randomIndex && nums[i] < nums[randomIndex]) ||
+    //   (i < randomIndex && nums[i] > nums[randomIndex])
+    // ) {
+    //   [nums[i], nums[randomIndex]] = [nums[randomIndex], nums[i]];
+    //   quickSort2(nums, left, i - 1);
+    //   quickSort2(nums, i + 1, right);
+    // } else {
+    //   quickSort2(nums, left, randomIndex - 1);
+    //   quickSort2(nums, randomIndex + 1, right);
+    // }
+}
+
 console.log(quickSort([3, 2, 1, 5, 4]), findKthLargest([3, 2, 1, 5, 4], 4))
+const nums2 = [3, 2, 1, 5, 4, 10, 7, 9, 6, 0, 22, 40, 19, 17, 14, 23]
+quickSort2(nums2, 0, nums2.length - 1)
+console.log(nums2)
