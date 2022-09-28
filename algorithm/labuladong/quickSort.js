@@ -73,6 +73,7 @@ function quickSort2(nums, left, right) {
     if (left > right) {
         return
     }
+    console.log('quickSort2')
     // const randomIndex = getRandomIntInclusive(left, right);
     const randomIndex = left
     // console.log(left, right, randomIndex);
